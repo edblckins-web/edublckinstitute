@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduBlck Institute</title>
+    <meta name="description" content="Research, consulting, and community infrastructure centering Black students and educators in the age of AI. Based in Pittsburg, CA.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0805;
+            --bg-surface: #111009;
+            --bg-card: #181208;
+            --gold: #C8961E;
+            --gold-light: #E8B84B;
+            --gold-pale: #F5E6C0;
+            --cream: #F0E6D3;
+            --cream-muted: #A89880;
+            --text-muted: #5C5040;
+            --border: rgba(200, 150, 30, 0.18);
+            --border-strong: rgba(200, 150, 30, 0.38);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--cream);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.85;
+            font-size: 17px;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 8, 5, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold-light); }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 9rem 5rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 55%;
+            height: 120%;
+            background: radial-gradient(ellipse at center, rgba(200, 150, 30, 0.07) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .hero-eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 9vw, 8rem);
+            font-weight: 900;
+            line-height: 0.95;
+            color: var(--cream);
+            margin-bottom: 0.15rem;
+        }
+
+        .hero h1 .accent { color: var(--gold); }
+
+        .hero-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            font-style: italic;
+            color: var(--gold-light);
+            margin: 2.2rem 0 2.8rem;
+            letter-spacing: 0.03em;
+        }
+
+        .hero-mission {
+            max-width: 600px;
+            font-size: 1.05rem;
+            color: var(--cream-muted);
+            line-height: 2;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--gold);
+            color: #0A0805;
+            padding: 1rem 2.5rem;
+            font-family: 'Lora', serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover { background: var(--gold-light); }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid var(--border-strong);
+            color: var(--gold-light);
+            padding: 1rem 2.5rem;
+            font-family: 'Lora', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* SECTION BASE */
+        .section-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 7rem 5rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-label::after {
+            content: '';
+            width: 48px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.45;
+        }
+
+        .section-label.center { justify-content: center; }
+        .section-label.center::after { display: none; }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.15;
+            margin-bottom: 2.8rem;
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--border);
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about-sidebar {
+            position: sticky;
+            top: 7rem;
+        }
+
+        .about-sidebar h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--gold-light);
+            margin-bottom: 1.8rem;
+        }
+
+        .cred-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .cred-list li {
+            font-size: 0.82rem;
+            color: var(--cream-muted);
+            padding-left: 1.2rem;
+            position: relative;
+            letter-spacing: 0.02em;
+            line-height: 1.5;
+        }
+
+        .cred-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            opacity: 0.7;
+        }
+
+        .about-bio p {
+            color: var(--cream-muted);
+            margin-bottom: 1.6rem;
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .about-bio p:first-child {
+            color: var(--cream);
+            font-size: 1.08rem;
+        }
+
+        .pullquote {
+            margin-top: 3rem;
+            padding: 1.8rem 2.2rem;
+            border-left: 2px solid var(--gold);
+            background: rgba(200, 150, 30, 0.04);
+        }
+
+        .pullquote p {
+            font-family: 'Playfair Display', serif !important;
+            font-size: 1.2rem !important;
+            font-style: italic;
+            color: var(--gold-light) !important;
+            margin: 0 !important;
+        }
+
+        /* RESEARCH */
+        .research-bg {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .research-intro {
+            max-width: 680px;
+            color: var(--cream-muted);
+            font-size: 1rem;
+            line-height: 2;
+            margin-bottom: 4rem;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .research-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.2rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .research-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-3px);
+        }
+
+        .card-type {
+            font-size: 0.68rem;
+            letter-spacing: 0.28em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        .research-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 0.4rem;
+            line-height: 1.35;
+        }
+
+        .card-author {
+            font-size: 0.82rem;
+            color: var(--cream-muted);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+
+        .research-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .research-note {
+            margin-top: 3rem;
+            padding: 1.5rem 2rem;
+            border: 1px dashed var(--border);
+            font-size: 0.88rem;
+            color: var(--cream-muted);
+            font-style: italic;
+        }
+
+        /* SURVEY */
+        .survey-intro {
+            max-width: 640px;
+            color: var(--cream-muted);
+            font-size: 1rem;
+            line-height: 2;
+            margin-bottom: 4rem;
+        }
+
+        .survey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .survey-card {
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            background: var(--bg-card);
+            transition: border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .survey-card:hover { border-color: var(--gold); }
+
+        .survey-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--cream);
+            margin-bottom: 1.2rem;
+        }
+
+        .survey-card p {
+            font-size: 0.9rem;
+            color: var(--cream-muted);
+            line-height: 1.85;
+            margin-bottom: 2.2rem;
+            flex: 1;
+        }
+
+        .badge-soon {
+            display: inline-block;
+            border: 1px solid var(--border-strong);
+            color: var(--gold);
+            padding: 0.6rem 1.4rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* CONSULTING */
+        .consulting-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .consulting-content p {
+            color: var(--cream-muted);
+            margin-bottom: 1.6rem;
+            line-height: 2;
+        }
+
+        .services-list {
+            list-style: none;
+            margin-top: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .services-list li {
+            padding: 1.1rem 1.5rem;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            font-size: 0.88rem;
+            color: var(--cream-muted);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        .services-list li:hover {
+            border-color: var(--border-strong);
+            color: var(--cream);
+        }
+
+        .services-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .contact-box {
+            border: 1px solid var(--border-strong);
+            padding: 3rem;
+            background: rgba(200, 150, 30, 0.03);
+            position: sticky;
+            top: 7rem;
+        }
+
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--cream);
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-box p {
+            font-size: 0.9rem;
+            color: var(--cream-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.9;
+        }
+
+        .contact-email-link {
+            display: block;
+            color: var(--gold-light);
+            font-size: 0.88rem;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            padding: 1rem 1.5rem;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+        .contact-email-link:hover { border-color: var(--gold); }
+
+        /* CONNECT */
+        .connect-bg {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .connect-bg h2 {
+            max-width: 560px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .connect-bg p {
+            max-width: 480px;
+            margin: 0 auto 3.5rem;
+            color: var(--cream-muted);
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .signup-form {
+            display: flex;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .signup-form input {
+            flex: 1;
+            padding: 1.1rem 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-strong);
+            border-right: none;
+            color: var(--cream);
+            font-family: 'Lora', serif;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .signup-form input::placeholder { color: var(--text-muted); }
+        .signup-form input:focus { border-color: var(--gold); }
+
+        .signup-form button {
+            padding: 1.1rem 2rem;
+            background: var(--gold);
+            color: #0A0805;
+            border: none;
+            font-family: 'Lora', serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .signup-form button:hover { background: var(--gold-light); }
+
+        .connect-note {
+            margin-top: 1.5rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
+        footer p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .hero { padding: 7rem 1.5rem 5rem; }
+            .section-wrap { padding: 5rem 1.5rem; }
+            .about-grid,
+            .consulting-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-sidebar { position: static; }
+            .contact-box { position: static; }
+            footer { padding: 2.5rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+            .signup-form { flex-direction: column; max-width: 100%; }
+            .signup-form input { border-right: 1px solid var(--border-strong); border-bottom: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="#" class="nav-logo">EduBlck Institute</a>
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#survey">Community</a></li>
+        <li><a href="#consulting">Work With Me</a></li>
+        <li><a href="#connect">Stay Connected</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <p class="hero-eyebrow">Pittsburg, CA &nbsp;·&nbsp; Est. 2025</p>
+    <h1>Edu<span class="accent">Blck</span><br>Institute</h1>
+    <p class="hero-tagline">Research rooted. Community built.</p>
+    <p class="hero-mission">Advancing research, consulting, and community infrastructure that centers Black students and educators in the age of AI — starting in Pittsburg, CA, and building outward from there.</p>
+    <div class="hero-cta">
+        <a href="#survey" class="btn-primary">Join the Research</a>
+        <a href="#consulting" class="btn-outline">Work With Me</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<div id="about">
+    <div class="section-wrap">
+        <p class="section-label">The Founder</p>
+        <h2>Built from the inside out.</h2>
+        <div class="about-grid">
+            <div class="about-sidebar">
+                <h3>Credentials</h3>
+                <ul class="cred-list">
+                    <li>BA in Mathematics</li>
+                    <li>MBA — Marketing, Strategy & AI Branding</li>
+                    <li>10+ Years as Educator</li>
+                    <li>Curriculum Developer</li>
+                    <li>Hillsborough County, FL</li>
+                    <li>Oakland Unified, CA</li>
+                    <li>KIPP Schools, SF</li>
+                    <li>Pittsburg, CA</li>
+                </ul>
+            </div>
+            <div class="about-bio">
+                <p>I am a researcher, educator, and consultant who has spent over a decade inside the American education system — and I founded EduBlck Institute because I know exactly what it costs when that system fails Black children.</p>
+                <p>I was born in Puerto Rico and raised knowing what it means to move through America in a Black body. I have carried that reality into every classroom I have ever stood in. I have watched affluent parents lobby against bussed-in ELL kids to protect their property values. I have been underpaid as a high-needs math teacher while a qualified Black administrator was passed over for a leadership role she earned. I have watched technology get pushed into under-resourced classrooms with no training, no support, and no consideration for the students sitting in front of it.</p>
+                <p>I left every institution that underestimated me. And I built something instead.</p>
+                <p>With a BA in mathematics, an MBA focused in marketing, strategy, and AI-influenced branding, and ten years of direct classroom and curriculum experience across Florida, Oakland, and San Francisco — I sit at an intersection most researchers don't occupy. I am not studying the Black community from the outside. I am building infrastructure from within it.</p>
+                <div class="pullquote">
+                    <p>This is not charity. This is architecture.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- RESEARCH -->
+<div class="research-bg" id="research">
+    <div class="section-wrap">
+        <p class="section-label">Research</p>
+        <h2>What I'm reading & reviewing.</h2>
+        <p class="research-intro">This is a living record of the literature informing EduBlck Institute's research. These texts ground our work in existing scholarship while we identify the gaps — particularly around AI, education, and the Black community experience.</p>
+        <div class="research-grid">
+            <div class="research-card">
+                <p class="card-type">Book · In Review</p>
+                <h3>The Mis-Education of the Negro</h3>
+                <p class="card-author">Carter G. Woodson, 1933</p>
+                <p>A foundational text examining how American education has historically disconnected Black students from their own culture — and the community cost of that disconnection.</p>
+            </div>
+            <div class="research-card">
+                <p class="card-type">Framework · Active Study</p>
+                <h3>Culturally Responsive Pedagogy</h3>
+                <p class="card-author">Gloria Ladson-Billings</p>
+                <p>The framework underpinning how EduBlck Institute approaches curriculum design — centering cultural identity as an asset, not an obstacle to learning.</p>
+            </div>
+            <div class="research-card">
+                <p class="card-type">Emerging Literature · Current</p>
+                <h3>AI & the Digital Divide in Education</h3>
+                <p class="card-author">Multiple Sources, 2022–Present</p>
+                <p>Growing research on how AI tools are being deployed in under-resourced schools — and who bears the cost of inadequate implementation and missing teacher training.</p>
+            </div>
+            <div class="research-card">
+                <p class="card-type">Methodology · Core</p>
+                <h3>Community-Based Participatory Research</h3>
+                <p class="card-author">CBPR Framework</p>
+                <p>The research methodology guiding EduBlck Institute's community work — ensuring that those most affected by AI in education are active participants in the research, not just subjects of it.</p>
+            </div>
+        </div>
+        <div class="research-note">
+            This section grows as the research grows. Check back regularly for new additions, annotations, and findings from the field.
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SURVEY -->
+<div id="survey">
+    <div class="section-wrap">
+        <p class="section-label">Community Research</p>
+        <h2>Your voice is the research.</h2>
+        <p class="survey-intro">EduBlck Institute is conducting community-based research in Pittsburg, CA exploring how AI is reshaping education for Black students and educators. Your experience is not a data point — it is the foundation.</p>
+        <div class="survey-grid">
+            <div class="survey-card">
+                <h3>Educator Survey</h3>
+                <p>Are you a current or former educator? Share your direct experience with how technology and AI tools have been introduced in your school — and who was left out of that conversation.</p>
+                <span class="badge-soon">Survey Coming Soon</span>
+            </div>
+            <div class="survey-card">
+                <h3>Community Survey</h3>
+                <p>Are you a parent, student, or community member in the Pittsburg, CA area? Tell us how AI in education is showing up — or not showing up — in your daily experience.</p>
+                <span class="badge-soon">Survey Coming Soon</span>
+            </div>
+            <div class="survey-card">
+                <h3>Research Partner Interest</h3>
+                <p>Are you an educator, school leader, or community organization interested in partnering with EduBlck Institute on formal research? Let's talk about what that looks like.</p>
+                <a href="mailto:edblckins@gmail.com" class="btn-primary" style="font-size: 0.78rem; padding: 0.8rem 1.8rem;">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONSULTING -->
+<div id="consulting">
+    <div class="section-wrap">
+        <p class="section-label">Work With Me</p>
+        <h2>Knowledge you can hire.</h2>
+        <div class="consulting-grid">
+            <div class="consulting-content">
+                <p>A decade in classrooms, curriculum labs, and school systems across three states gave me knowledge that institutions repeatedly refused to compensate fairly. EduBlck Institute exists, in part, to change that — on my terms.</p>
+                <p>I work with school districts, charter networks, ed-tech organizations, and community groups who need someone who understands both the research and the reality on the ground. I don't study these environments from the outside — I built my career inside them.</p>
+                <ul class="services-list">
+                    <li>AI Literacy Workshops for Educators</li>
+                    <li>Equity Audits of AI Tool Deployment</li>
+                    <li>Math Remediation Strategy & Curriculum</li>
+                    <li>Community-Based Research Partnerships</li>
+                    <li>Professional Development for School Leaders</li>
+                    <li>Curriculum Writing & Design</li>
+                </ul>
+            </div>
+            <div class="contact-box">
+                <h3>Let's talk.</h3>
+                <p>Whether you're a district looking for professional development, an organization building equitable ed-tech, or a community partner — reach out directly. No intermediaries.</p>
+                <a href="mailto:edblckins@gmail.com" class="contact-email-link">edblckins@gmail.com</a>
+                <a href="mailto:edblckins@gmail.com" class="btn-primary">Send a Message</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- STAY CONNECTED -->
+<div class="connect-bg" id="connect">
+    <div class="section-wrap">
+        <p class="section-label center">Stay Connected</p>
+        <h2>Follow the research as it happens.</h2>
+        <p>Sign up to receive updates on EduBlck Institute's community findings, research notes, and new resources — directly to your inbox.</p>
+        <form class="signup-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p class="connect-note">No spam. No selling. Just the research.</p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-logo">EduBlck Institute</span>
+    <p>Research rooted. Community built. &nbsp;·&nbsp; Pittsburg, CA</p>
+    <p>© 2025 EduBlck Institute. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
