@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | EduBlck Institute</title>
+    <meta name="description" content="EduBlck Institute's working literature review on AI, education, and the Black community. Grades 5-9. Pittsburg, CA.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0805;
+            --bg-surface: #111009;
+            --bg-card: #181208;
+            --gold: #C8961E;
+            --gold-light: #E8B84B;
+            --gold-pale: #F5E6C0;
+            --cream: #F0E6D3;
+            --cream-muted: #A89880;
+            --text-muted: #5C5040;
+            --border: rgba(200, 150, 30, 0.18);
+            --border-strong: rgba(200, 150, 30, 0.38);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--cream);
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.85;
+            font-size: 17px;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.2rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 8, 5, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--gold-light); }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 9rem 5rem 5rem;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 50%;
+            height: 140%;
+            background: radial-gradient(ellipse, rgba(200,150,30,0.06) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .breadcrumb {
+            font-size: 0.72rem;
+            letter-spacing: 0.3em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .breadcrumb a {
+            color: var(--cream-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover { color: var(--gold); }
+        .breadcrumb span { margin: 0 0.6rem; color: var(--text-muted); }
+
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 900;
+            line-height: 0.95;
+            color: var(--cream);
+            margin-bottom: 2rem;
+        }
+
+        .page-hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .meta-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.28em;
+            color: var(--gold);
+            text-transform: uppercase;
+        }
+
+        .meta-value {
+            font-size: 0.9rem;
+            color: var(--cream-muted);
+        }
+
+        .hero-intro {
+            max-width: 680px;
+            color: var(--cream-muted);
+            font-size: 1.05rem;
+            line-height: 2;
+        }
+
+        /* RESEARCH QUESTION CALLOUT */
+        .research-question {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 5rem;
+        }
+
+        .rq-inner {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .rq-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .rq-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+            font-style: italic;
+            color: var(--cream);
+            line-height: 1.5;
+            padding-left: 2rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        /* THEMES */
+        .themes-section {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 6rem 5rem;
+        }
+
+        .themes-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .themes-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.15;
+        }
+
+        .gdoc-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--gold);
+            color: #0A0805;
+            padding: 1rem 2rem;
+            font-family: 'Lora', serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background 0.3s;
+            white-space: nowrap;
+        }
+
+        .gdoc-btn:hover { background: var(--gold-light); }
+
+        .gdoc-btn svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* THEME CARDS */
+        .themes-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .theme-card {
+            background: var(--bg);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 2.5rem;
+            align-items: start;
+            transition: background 0.3s;
+            cursor: default;
+        }
+
+        .theme-card:hover { background: var(--bg-card); }
+
+        .theme-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            opacity: 0.25;
+            line-height: 1;
+            margin-top: -0.3rem;
+        }
+
+        .theme-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--cream);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .theme-content p {
+            color: var(--cream-muted);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 1.2rem;
+        }
+
+        .theme-gap {
+            margin-top: 1.2rem;
+            padding: 1rem 1.4rem;
+            border-left: 2px solid var(--gold);
+            background: rgba(200,150,30,0.04);
+        }
+
+        .theme-gap-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+
+        .theme-gap p {
+            font-size: 0.85rem !important;
+            font-style: italic;
+            color: var(--cream-muted) !important;
+            margin: 0 !important;
+        }
+
+        .theme-sources {
+            min-width: 200px;
+        }
+
+        .sources-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .source-item {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(200,150,30,0.08);
+        }
+
+        .source-item:last-child { border-bottom: none; }
+
+        /* GAP CALLOUT */
+        .gap-section {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 5rem;
+        }
+
+        .gap-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gap-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .gap-inner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            color: var(--cream);
+            margin-bottom: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .gap-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .gap-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--gold-light);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gap-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .gap-list li {
+            font-size: 0.88rem;
+            color: var(--cream-muted);
+            padding-left: 1.4rem;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .gap-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 5px;
+            height: 5px;
+            background: var(--gold);
+            opacity: 0.6;
+        }
+
+        /* READING LIST */
+        .reading-section {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 6rem 5rem;
+        }
+
+        .reading-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .reading-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            color: var(--cream);
+        }
+
+        .reading-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .reading-category h3 {
+            font-size: 0.7rem;
+            letter-spacing: 0.28em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .reading-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .reading-list li {
+            font-size: 0.85rem;
+            color: var(--cream-muted);
+            line-height: 1.6;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .reading-list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            opacity: 0.5;
+        }
+
+        /* FULL DOC CTA */
+        .doc-cta {
+            margin: 0 5rem 6rem;
+            padding: 3.5rem;
+            border: 1px solid var(--border-strong);
+            background: rgba(200,150,30,0.03);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .doc-cta-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--cream);
+            margin-bottom: 0.8rem;
+        }
+
+        .doc-cta-text p {
+            font-size: 0.92rem;
+            color: var(--cream-muted);
+            max-width: 500px;
+            line-height: 1.9;
+        }
+
+        .doc-cta-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            border: 1px solid var(--border-strong);
+            color: var(--cream-muted);
+            padding: 0.9rem 2rem;
+            font-family: 'Lora', serif;
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        .update-note {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--gold);
+        }
+
+        footer p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .page-hero { padding: 7rem 1.5rem 4rem; }
+            .research-question { padding: 3rem 1.5rem; }
+            .themes-section { padding: 4rem 1.5rem; }
+            .theme-card { grid-template-columns: 50px 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+            .theme-sources { display: none; }
+            .gap-section { padding: 3rem 1.5rem; }
+            .gap-cols { grid-template-columns: 1fr; gap: 2rem; }
+            .reading-section { padding: 4rem 1.5rem; }
+            .doc-cta { margin: 0 1.5rem 4rem; padding: 2rem 1.5rem; }
+            footer { padding: 2.5rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+            .hero-meta { gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="index.html" class="nav-logo">EduBlck Institute</a>
+    <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="index.html#survey">Community</a></li>
+        <li><a href="index.html#consulting">Work With Me</a></li>
+        <li><a href="index.html#connect">Stay Connected</a></li>
+    </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+    <p class="breadcrumb"><a href="index.html">Home</a><span>›</span>Research</p>
+    <h1>Working<br><em>Literature</em><br>Review</h1>
+    <div class="hero-meta">
+        <div class="meta-item">
+            <span class="meta-label">Focus</span>
+            <span class="meta-value">AI, Education & the Black Community</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Grade Range</span>
+            <span class="meta-value">Grades 5–9</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Methodology</span>
+            <span class="meta-value">Community-Based Participatory Research</span>
+        </div>
+        <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">Active — Updated Ongoing</span>
+        </div>
+    </div>
+    <p class="hero-intro">This is a living document. I am sharing my research process in real time — what I am reading, what I am finding, and where the gaps are. This page grows as the work grows. Come back often.</p>
+</div>
+
+<!-- RESEARCH QUESTION -->
+<div class="research-question">
+    <div class="rq-inner">
+        <p class="rq-label">Core Research Question</p>
+        <p class="rq-text">How is the adoption of AI tools in grades 5–9 affecting the educational experiences and outcomes of Black students, and what community-based infrastructure is needed to ensure equitable implementation?</p>
+    </div>
+</div>
+
+<!-- THEMES -->
+<div class="themes-section">
+    <div class="themes-header">
+        <h2>Five Themes.<br>One Connected Story.</h2>
+        <a href="https://docs.google.com/document/d/1LnijRNnYVxOwfR8Aktce27VC7optO9ok/view" target="_blank" class="gdoc-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            Read Full Document
+        </a>
+    </div>
+
+    <div class="themes-grid">
+
+        <!-- THEME 1 -->
+        <div class="theme-card">
+            <div class="theme-number">01</div>
+            <div class="theme-content">
+                <h3>Racial Bias in AI Educational Tools</h3>
+                <p>The foundational problem: AI tools in education carry racial bias because they reflect the biases of their designers. The tech industry is 92.6% non-Black. The tools being built for Black students are rarely built by people who understand their experience — and that gap shows up in the classroom.</p>
+                <p>AI-powered tools may present incomplete accounts of Black history, misinterpret cultural references in student essays, and fail to accurately identify which students need support. These are not edge cases. They are the predictable output of a design process that does not center Black students.</p>
+                <div class="theme-gap">
+                    <p class="theme-gap-label">The Research Gap</p>
+                    <p>No community-level study has examined how bias in AI tools specifically manifests in grades 5–9 classrooms serving majority-Black populations in mid-size California cities. This is EduBlck Institute's entry point.</p>
+                </div>
+            </div>
+            <div class="theme-sources">
+                <p class="sources-label">Key Sources</p>
+                <p class="source-item">McKinsey & Co. (2023)</p>
+                <p class="source-item">EdTech Equity Project (2023–24)</p>
+                <p class="source-item">Stanford Center for Racial Justice (2024)</p>
+                <p class="source-item">Frontiers in Education (2024)</p>
+            </div>
+        </div>
+
+        <!-- THEME 2 -->
+        <div class="theme-card">
+            <div class="theme-number">02</div>
+            <div class="theme-content">
+                <h3>The Digital Divide and AI Access</h3>
+                <p>Before bias in the classroom can be addressed, there is a prior problem: unequal access. A 2023 Pew Research Center survey found that 72% of White teens had heard of ChatGPT, compared to 56% of Black teens. The awareness gap begins in the home — before any teacher deploys a tool.</p>
+                <p>In California specifically, 35% of low-income households still lacked reliable internet in 2021. In Pittsburg, CA — the home base of this research — broadband equity and device access are live community issues, not abstract national statistics.</p>
+                <div class="theme-gap">
+                    <p class="theme-gap-label">The Research Gap</p>
+                    <p>No study has measured AI awareness and access specifically within the Pittsburg, CA community or comparable Bay Area working-class Black communities. This is primary data waiting to be gathered.</p>
+                </div>
+            </div>
+            <div class="theme-sources">
+                <p class="sources-label">Key Sources</p>
+                <p class="source-item">Pew Research Center (2023)</p>
+                <p class="source-item">PPIC California (2021)</p>
+                <p class="source-item">Stanford Center for Racial Justice (2024)</p>
+            </div>
+        </div>
+
+        <!-- THEME 3 -->
+        <div class="theme-card">
+            <div class="theme-number">03</div>
+            <div class="theme-content">
+                <h3>Teacher Training and Institutional Failure</h3>
+                <p>As of fall 2024, only 47% of teachers reported receiving any training on AI — and that training was typically a one-time event, not ongoing professional development (RAND, 2025). More than half of American teachers are navigating AI-integrated classrooms with no institutional guidance.</p>
+                <p>For under-resourced districts serving predominantly Black students, this is compounded: Black students receive tools not designed for them, deployed by teachers not trained to use them, in schools that cannot afford to address either problem.</p>
+                <div class="theme-gap">
+                    <p class="theme-gap-label">The Research Gap</p>
+                    <p>No research has gathered primary data specifically from Black educators on their experience of AI professional development inadequacy and the direct effect on Black students in their classrooms.</p>
+                </div>
+            </div>
+            <div class="theme-sources">
+                <p class="sources-label">Key Sources</p>
+                <p class="source-item">RAND Corporation (2025)</p>
+                <p class="source-item">U.S. Dept. of Education (2023)</p>
+                <p class="source-item">Stanford Center for Racial Justice (2024)</p>
+            </div>
+        </div>
+
+        <!-- THEME 4 -->
+        <div class="theme-card">
+            <div class="theme-number">04</div>
+            <div class="theme-content">
+                <h3>The Achievement Gap at the Middle School Level</h3>
+                <p>Grades 5–9 is the developmental window where academic identity forms and the achievement gap is most consequential. As of spring 2025, only 39.3% of 8th graders in majority-Black schools met grade-level reading standards. In mathematics — this researcher's content area — students remain 1 to 14 percentage points below pre-pandemic 2019 levels.</p>
+                <p>The achievement gap is now 30% larger than it was 35 years ago — driven by the dismantling of equity-focused policies from the 1960s and 70s. The pandemic accelerated a pre-existing crisis. AI is arriving into this context.</p>
+                <div class="theme-gap">
+                    <p class="theme-gap-label">The Research Gap</p>
+                    <p>No study has examined how AI math remediation tools perform for Black students in grades 5–9 in California, or how those students and teachers experience these tools culturally and academically.</p>
+                </div>
+            </div>
+            <div class="theme-sources">
+                <p class="sources-label">Key Sources</p>
+                <p class="source-item">EdWeek (2025)</p>
+                <p class="source-item">Darling-Hammond / LPI (2024)</p>
+                <p class="source-item">Hechinger Report (2024)</p>
+                <p class="source-item">EdTrust (2024)</p>
+            </div>
+        </div>
+
+        <!-- THEME 5 -->
+        <div class="theme-card">
+            <div class="theme-number">05</div>
+            <div class="theme-content">
+                <h3>Frameworks for Equity-Centered Research</h3>
+                <p>This research is grounded in three interlocking frameworks. Culturally Responsive Pedagogy (Ladson-Billings) holds that student cultural identity is an asset to be centered, not a variable to be managed. Community-Based Participatory Research (CBPR) ensures that the community most affected by a problem is an active participant in researching it. Carter G. Woodson's foundational work reminds us that this is not a new problem — only a new mechanism.</p>
+                <p>Together these frameworks define how EduBlck Institute collects data, interprets findings, and builds community trust.</p>
+                <div class="theme-gap">
+                    <p class="theme-gap-label">The Research Gap</p>
+                    <p>CBPR methodology has not been applied to AI-in-education research with an insider researcher embedded in a specific Black community in California. That combination is EduBlck Institute's original contribution.</p>
+                </div>
+            </div>
+            <div class="theme-sources">
+                <p class="sources-label">Key Sources</p>
+                <p class="source-item">Ladson-Billings (CRP)</p>
+                <p class="source-item">Woodson (1933)</p>
+                <p class="source-item">CBPR Framework</p>
+                <p class="source-item">ScienceDirect (2025)</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- GAP SUMMARY -->
+<div class="gap-section">
+    <div class="gap-inner">
+        <p class="gap-label">Why This Research Matters</p>
+        <h2>What exists — and what doesn't.</h2>
+        <div class="gap-cols">
+            <div class="gap-col">
+                <h4>What the literature already covers</h4>
+                <ul class="gap-list">
+                    <li>National-level data on AI bias in educational tools</li>
+                    <li>Aggregate achievement gap statistics for Black students</li>
+                    <li>Policy recommendations from government and think tanks</li>
+                    <li>Theoretical frameworks for equity-centered AI in education</li>
+                    <li>Surveys of teacher AI training nationally</li>
+                </ul>
+            </div>
+            <div class="gap-col">
+                <h4>What EduBlck Institute contributes</h4>
+                <ul class="gap-list">
+                    <li>Hyperlocal research grounded in Pittsburg, CA</li>
+                    <li>Primary data from Black educators on AI in grades 5–9</li>
+                    <li>CBPR methodology with an inside researcher</li>
+                    <li>A math-specific lens grounded in subject-matter expertise</li>
+                    <li>Community trust infrastructure no outside researcher can replicate</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- READING LIST -->
+<div class="reading-section">
+    <div class="reading-header">
+        <h2>What I'm Reading</h2>
+    </div>
+    <div class="reading-grid">
+        <div class="reading-category">
+            <h3>Foundational Texts</h3>
+            <ul class="reading-list">
+                <li>Woodson — The Mis-Education of the Negro (1933)</li>
+                <li>Ladson-Billings — Dreamkeepers</li>
+                <li>Noble — Algorithms of Oppression (2018)</li>
+            </ul>
+        </div>
+        <div class="reading-category">
+            <h3>AI & Education Equity</h3>
+            <ul class="reading-list">
+                <li>U.S. Dept. of Education AI Report (2023)</li>
+                <li>EdTrust — Promise and Peril of AI (2024)</li>
+                <li>Stanford Center for Racial Justice (2024)</li>
+                <li>Word In Black Series — AI in Schools (2024)</li>
+                <li>EdTech Equity Project Toolkit (2023–24)</li>
+            </ul>
+        </div>
+        <div class="reading-category">
+            <h3>Achievement Gap & Middle School</h3>
+            <ul class="reading-list">
+                <li>Darling-Hammond — AERA Address (2024)</li>
+                <li>Hechinger Report — Achievement Gap Since Brown (2024)</li>
+                <li>RAND — Teacher AI Training Report (2025)</li>
+                <li>EdWeek — Post-Pandemic Achievement (2025)</li>
+            </ul>
+        </div>
+        <div class="reading-category">
+            <h3>Methodology</h3>
+            <ul class="reading-list">
+                <li>Israel et al. — CBPR for Health</li>
+                <li>Minkler & Wallerstein — CBPR Framework</li>
+                <li>ScienceDirect — Inclusive AI in K-12 (2025)</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- FULL DOCUMENT CTA -->
+<div class="doc-cta">
+    <div class="doc-cta-text">
+        <h3>Read the full working document.</h3>
+        <p>The complete literature review includes full source citations, researcher notes, field observations, and a detailed breakdown of each theme. It is updated as the research develops — check back for new additions.</p>
+    </div>
+    <div class="doc-cta-actions">
+        <a href="https://docs.google.com/document/d/1LnijRNnYVxOwfR8Aktce27VC7optO9ok/view" target="_blank" class="gdoc-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                <polyline points="15 3 21 3 21 9"/>
+                <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            Open Full Document
+        </a>
+        <span class="update-note">View only · Updated ongoing · Last updated 2025</span>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <span class="footer-logo">EduBlck Institute</span>
+    <p>Research rooted. Community built. · Pittsburg, CA</p>
+    <p>© 2025 EduBlck Institute. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
