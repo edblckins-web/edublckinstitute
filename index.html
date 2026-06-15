@@ -77,12 +77,31 @@
         /* HERO */
         .hero {
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
             padding: 9rem 5rem 6rem;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+            border: 1px solid var(--border-strong);
         }
 
         .hero::before {
@@ -226,6 +245,68 @@
             margin: 0 auto;
         }
 
+        /* RESEARCH */
+        .research-bg {
+            background: var(--bg-surface);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .research-intro {
+            max-width: 680px;
+            color: var(--cream-muted);
+            font-size: 1rem;
+            line-height: 2;
+            margin-bottom: 4rem;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .research-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2.2rem;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .research-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-3px);
+        }
+
+        .card-type {
+            font-size: 0.68rem;
+            letter-spacing: 0.28em;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        .research-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--cream);
+            margin-bottom: 0.4rem;
+            line-height: 1.35;
+        }
+
+        .card-author {
+            font-size: 0.82rem;
+            color: var(--cream-muted);
+            font-style: italic;
+            margin-bottom: 1.2rem;
+        }
+
+        .research-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
         /* ABOUT */
         .about-grid {
             display: grid;
@@ -296,128 +377,6 @@
             font-style: italic;
             color: var(--gold-light) !important;
             margin: 0 !important;
-        }
-
-        /* RESEARCH */
-        .research-bg {
-            background: var(--bg-surface);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .research-intro {
-            max-width: 680px;
-            color: var(--cream-muted);
-            font-size: 1rem;
-            line-height: 2;
-            margin-bottom: 4rem;
-        }
-
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .research-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 2.2rem;
-            transition: border-color 0.3s, transform 0.3s;
-        }
-
-        .research-card:hover {
-            border-color: var(--border-strong);
-            transform: translateY(-3px);
-        }
-
-        .card-type {
-            font-size: 0.68rem;
-            letter-spacing: 0.28em;
-            color: var(--gold);
-            text-transform: uppercase;
-            margin-bottom: 1.2rem;
-        }
-
-        .research-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: var(--cream);
-            margin-bottom: 0.4rem;
-            line-height: 1.35;
-        }
-
-        .card-author {
-            font-size: 0.82rem;
-            color: var(--cream-muted);
-            font-style: italic;
-            margin-bottom: 1.2rem;
-        }
-
-        .research-card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-        }
-
-        .research-note {
-            margin-top: 3rem;
-            padding: 1.5rem 2rem;
-            border: 1px dashed var(--border);
-            font-size: 0.88rem;
-            color: var(--cream-muted);
-            font-style: italic;
-        }
-
-        /* SURVEY */
-        .survey-intro {
-            max-width: 640px;
-            color: var(--cream-muted);
-            font-size: 1rem;
-            line-height: 2;
-            margin-bottom: 4rem;
-        }
-
-        .survey-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .survey-card {
-            border: 1px solid var(--border);
-            padding: 2.5rem;
-            background: var(--bg-card);
-            transition: border-color 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .survey-card:hover { border-color: var(--gold); }
-
-        .survey-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--cream);
-            margin-bottom: 1.2rem;
-        }
-
-        .survey-card p {
-            font-size: 0.9rem;
-            color: var(--cream-muted);
-            line-height: 1.85;
-            margin-bottom: 2.2rem;
-            flex: 1;
-        }
-
-        .badge-soon {
-            display: inline-block;
-            border: 1px solid var(--border-strong);
-            color: var(--gold);
-            padding: 0.6rem 1.4rem;
-            font-size: 0.75rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
         }
 
         /* CONSULTING */
@@ -503,70 +462,6 @@
 
         .contact-email-link:hover { border-color: var(--gold); }
 
-        /* CONNECT */
-        .connect-bg {
-            background: var(--bg-surface);
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        .connect-bg h2 {
-            max-width: 560px;
-            margin: 0 auto 1.5rem;
-        }
-
-        .connect-bg p {
-            max-width: 480px;
-            margin: 0 auto 3.5rem;
-            color: var(--cream-muted);
-            font-size: 1rem;
-            line-height: 2;
-        }
-
-        .signup-form {
-            display: flex;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        .signup-form input {
-            flex: 1;
-            padding: 1.1rem 1.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border-strong);
-            border-right: none;
-            color: var(--cream);
-            font-family: 'Lora', serif;
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .signup-form input::placeholder { color: var(--text-muted); }
-        .signup-form input:focus { border-color: var(--gold); }
-
-        .signup-form button {
-            padding: 1.1rem 2rem;
-            background: var(--gold);
-            color: #0A0805;
-            border: none;
-            font-family: 'Lora', serif;
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .signup-form button:hover { background: var(--gold-light); }
-
-        .connect-note {
-            margin-top: 1.5rem;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            letter-spacing: 0.05em;
-        }
-
         /* FOOTER */
         footer {
             padding: 3rem 5rem;
@@ -592,15 +487,17 @@
         @media (max-width: 900px) {
             nav { padding: 1rem 1.5rem; }
             .nav-links { display: none; }
-            .hero { padding: 7rem 1.5rem 5rem; }
+            .hero { 
+                grid-template-columns: 1fr;
+                padding: 7rem 1.5rem 5rem;
+                gap: 2rem;
+            }
             .section-wrap { padding: 5rem 1.5rem; }
             .about-grid,
             .consulting-grid { grid-template-columns: 1fr; gap: 3rem; }
             .about-sidebar { position: static; }
             .contact-box { position: static; }
             footer { padding: 2.5rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
-            .signup-form { flex-direction: column; max-width: 100%; }
-            .signup-form input { border-right: 1px solid var(--border-strong); border-bottom: none; }
         }
     </style>
 </head>
@@ -610,25 +507,71 @@
 <nav>
     <a href="#" class="nav-logo">EduBlck Institute</a>
     <ul class="nav-links">
+        <li><a href="#research">Research</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="research.html">Research</a></li>
-        <li><a href="#survey">Community</a></li>
         <li><a href="#consulting">Work With Me</a></li>
-        <li><a href="#connect">Stay Connected</a></li>
     </ul>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-    <p class="hero-eyebrow">Pittsburg, CA &nbsp;·&nbsp; Est. 2025</p>
-    <h1>Edu<span class="accent">Blck</span><br>Institute</h1>
-    <p class="hero-tagline">Research rooted. Community built.</p>
-    <p class="hero-mission">Advancing research, consulting, and community infrastructure that centers Black students and educators in the age of AI — starting in Pittsburg, CA, and building outward from there.</p>
-    <div class="hero-cta">
-        <a href="#survey" class="btn-primary">Join the Research</a>
-        <a href="#consulting" class="btn-outline">Work With Me</a>
+    <div class="hero-content">
+        <p class="hero-eyebrow">Pittsburg, CA &nbsp;·&nbsp; Est. 2025</p>
+        <h1>Edu<span class="accent">Blck</span><br>Institute</h1>
+        <p class="hero-tagline">Close the equity gap between AI and Black students.</p>
+        <p class="hero-mission">Advancing research, consulting, and community infrastructure that centers Black students and educators in the age of AI — starting in Pittsburg, CA, and building outward from there.</p>
+        <div class="hero-cta">
+            <a href="#research" class="btn-primary">See Our Research</a>
+            <a href="#consulting" class="btn-outline">Work With Me</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="Karla_OSA_2017.jpeg" alt="EduBlck Institute founder in classroom">
     </div>
 </div>
+
+<!-- RESEARCH THEMES -->
+<div class="research-bg" id="research">
+    <div class="section-wrap">
+        <p class="section-label">Five Research Themes</p>
+        <h2>What we're studying.</h2>
+        <p class="research-intro">EduBlck Institute is building research rooted in five critical themes about AI, education, and the Black community — focused on grades 5–9.</p>
+        <div class="research-grid">
+            <div class="research-card">
+                <p class="card-type">Theme 01</p>
+                <h3>Racial Bias in AI Educational Tools</h3>
+                <p class="card-author">McKinsey · EdTech Equity Project · Stanford</p>
+                <p>AI tools carry racial bias because they reflect the blind spots of their designers. The tech industry is 92.6% non-Black — and the tools being built for Black students are rarely built by people who understand their experience.</p>
+            </div>
+            <div class="research-card">
+                <p class="card-type">Theme 02</p>
+                <h3>The Digital Divide & AI Access</h3>
+                <p class="card-author">Pew Research · PPIC California · Stanford</p>
+                <p>72% of White teens have heard of ChatGPT vs. 56% of Black teens. The awareness gap begins at home — before any teacher deploys a tool. In Pittsburg, CA, broadband equity is a live community issue.</p>
+            </div>
+            <div class="research-card">
+                <p class="card-type">Theme 03</p>
+                <h3>Teacher Training & Institutional Failure</h3>
+                <p class="card-author">RAND Corporation · U.S. Dept. of Education</p>
+                <p>As of fall 2024, only 47% of teachers received any AI training — typically a one-time event. Black students receive tools not designed for them, deployed by teachers not trained to use them.</p>
+            </div>
+            <div class="research-card">
+                <p class="card-type">Theme 04</p>
+                <h3>The Achievement Gap at Grades 5–9</h3>
+                <p class="card-author">EdWeek · Darling-Hammond · Hechinger Report</p>
+                <p>Only 39.3% of 8th graders in majority-Black schools met grade-level reading standards in 2025. In math — this researcher's subject — students remain up to 14 points below pre-pandemic levels.</p>
+            </div>
+            <div class="research-card">
+                <p class="card-type">Theme 05</p>
+                <h3>Equity-Centered Research Frameworks</h3>
+                <p class="card-author">Ladson-Billings · Woodson · CBPR</p>
+                <p>Culturally Responsive Pedagogy, Community-Based Participatory Research, and Carter G. Woodson's foundational work ground every methodological decision EduBlck Institute makes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
 
 <!-- ABOUT -->
 <div id="about">
@@ -664,87 +607,6 @@
 
 <div class="divider"></div>
 
-<!-- RESEARCH -->
-<div class="research-bg" id="research">
-    <div class="section-wrap">
-        <p class="section-label">Research</p>
-        <h2>What I'm reading & reviewing.</h2>
-        <p class="research-intro">EduBlck Institute is building a working literature review on AI, education, and the Black community — focused on grades 5–9. This is a living document, updated as the research develops. Below are the five themes organizing the work.</p>
-        <div class="research-grid">
-            <div class="research-card">
-                <p class="card-type">Theme 01 · Active</p>
-                <h3>Racial Bias in AI Educational Tools</h3>
-                <p class="card-author">McKinsey · EdTech Equity Project · Stanford</p>
-                <p>AI tools carry racial bias because they reflect the blind spots of their designers. The tech industry is 92.6% non-Black — and the tools being built for Black students are rarely built by people who understand their experience.</p>
-            </div>
-            <div class="research-card">
-                <p class="card-type">Theme 02 · Active</p>
-                <h3>The Digital Divide & AI Access</h3>
-                <p class="card-author">Pew Research · PPIC California · Stanford</p>
-                <p>72% of White teens have heard of ChatGPT vs. 56% of Black teens. The awareness gap begins at home — before any teacher deploys a tool. In Pittsburg, CA, broadband equity is a live community issue.</p>
-            </div>
-            <div class="research-card">
-                <p class="card-type">Theme 03 · Active</p>
-                <h3>Teacher Training & Institutional Failure</h3>
-                <p class="card-author">RAND Corporation · U.S. Dept. of Education</p>
-                <p>As of fall 2024, only 47% of teachers received any AI training — typically a one-time event. Black students receive tools not designed for them, deployed by teachers not trained to use them.</p>
-            </div>
-            <div class="research-card">
-                <p class="card-type">Theme 04 · Active</p>
-                <h3>The Achievement Gap at Grades 5–9</h3>
-                <p class="card-author">EdWeek · Darling-Hammond · Hechinger Report</p>
-                <p>Only 39.3% of 8th graders in majority-Black schools met grade-level reading standards in 2025. In math — this researcher's subject — students remain up to 14 points below pre-pandemic levels.</p>
-            </div>
-            <div class="research-card">
-                <p class="card-type">Theme 05 · Core Framework</p>
-                <h3>Equity-Centered Research Frameworks</h3>
-                <p class="card-author">Ladson-Billings · Woodson · CBPR</p>
-                <p>Culturally Responsive Pedagogy, Community-Based Participatory Research, and Carter G. Woodson's foundational work ground every methodological decision EduBlck Institute makes.</p>
-            </div>
-            <div class="research-card" style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border-color:rgba(200,150,30,0.38);background:rgba(200,150,30,0.03);">
-                <p class="card-type">Full Document · View Only</p>
-                <h3>Working Literature Review</h3>
-                <p class="card-author">EduBlck Institute · Updated Ongoing</p>
-                <p>Read the complete literature review including full citations, researcher notes, the reading list, and the research gap analysis.</p>
-                <a href="research.html" class="btn-primary" style="margin-top:1.5rem;font-size:0.78rem;padding:0.8rem 1.8rem;">View Full Research</a>
-            </div>
-        </div>
-        <div class="research-note">
-            This is a living document. Check back regularly — new sources, annotations, and field observations are added as the research develops. <a href="research.html" style="color:var(--gold-light);text-decoration:none;">Read the full working literature review →</a>
-        </div>
-    </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- SURVEY -->
-<div id="survey">
-    <div class="section-wrap">
-        <p class="section-label">Community Research</p>
-        <h2>Your voice is the research.</h2>
-        <p class="survey-intro">EduBlck Institute is conducting community-based research in Pittsburg, CA exploring how AI is reshaping education for Black students and educators. Your experience is not a data point — it is the foundation.</p>
-        <div class="survey-grid">
-            <div class="survey-card">
-                <h3>Educator Survey</h3>
-                <p>Are you a current or former educator? Share your direct experience with how technology and AI tools have been introduced in your school — and who was left out of that conversation.</p>
-                <span class="badge-soon">Survey Coming Soon</span>
-            </div>
-            <div class="survey-card">
-                <h3>Community Survey</h3>
-                <p>Are you a parent, student, or community member in the Pittsburg, CA area? Tell us how AI in education is showing up — or not showing up — in your daily experience.</p>
-                <span class="badge-soon">Survey Coming Soon</span>
-            </div>
-            <div class="survey-card">
-                <h3>Research Partner Interest</h3>
-                <p>Are you an educator, school leader, or community organization interested in partnering with EduBlck Institute on formal research? Let's talk about what that looks like.</p>
-                <a href="mailto:edblckins@gmail.com" class="btn-primary" style="font-size: 0.78rem; padding: 0.8rem 1.8rem;">Get in Touch</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="divider"></div>
-
 <!-- CONSULTING -->
 <div id="consulting">
     <div class="section-wrap">
@@ -765,25 +627,11 @@
             </div>
             <div class="contact-box">
                 <h3>Let's talk.</h3>
-                <p>Whether you're a district looking for professional development, an organization building equitable ed-tech, or a community partner — reach out directly. No intermediaries.</p>
+                <p>Whether you're a district looking for professional development, an organization building equitable ed-tech, or a community partner — reach out directly.</p>
                 <a href="mailto:edblckins@gmail.com" class="contact-email-link">edblckins@gmail.com</a>
                 <a href="mailto:edblckins@gmail.com" class="btn-primary">Send a Message</a>
             </div>
         </div>
-    </div>
-</div>
-
-<!-- STAY CONNECTED -->
-<div class="connect-bg" id="connect">
-    <div class="section-wrap">
-        <p class="section-label center">Stay Connected</p>
-        <h2>Follow the research as it happens.</h2>
-        <p>Sign up to receive updates on EduBlck Institute's community findings, research notes, and new resources — directly to your inbox.</p>
-        <form class="signup-form" action="mailto:edblckins@gmail.com" method="GET">
-            <input type="email" name="email" placeholder="Your email address" required>
-            <button type="submit">Subscribe</button>
-        </form>
-        <p class="connect-note">No spam. No selling. Just the research.</p>
     </div>
 </div>
 
