@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact · Karla Hannah</title>
+    <meta name="description" content="Reach Karla Hannah and EduBlck Institute directly. Replies within 2 to 3 business days.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lora:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+</div>
+
+<nav class="slim">
+    <a href="index.html" class="nav-logo">EduBlck Institute</a>
+    <a href="projects.html" class="nav-link">AI Projects</a>
+    <a href="research.html" class="nav-link">Research</a>
+    <a href="consulting.html" class="nav-link">Consulting</a>
+    <a href="resume.html" class="nav-link">Resume</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="projects.html">AI Projects</a>
+    <a href="research.html">Research</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="resume.html">Resume</a>
+</div>
+
+<div class="page">
+    <div class="wrap">
+
+        <header class="page-head">
+            <p class="eyebrow reveal">Contact</p>
+            <h1 class="page-title reveal">Let's <span class="kinetic">talk.</span></h1>
+            <p class="page-intro reveal">Tell me what you're building or what you need, and I'll get back to you within 2 to 3 business days.</p>
+        </header>
+
+        <section class="section">
+            <form id="contactForm" class="form-col">
+                <div class="f-group reveal">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" autocomplete="name" required>
+                </div>
+
+                <div class="f-group reveal">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" autocomplete="email" required>
+                </div>
+
+                <div class="f-group reveal">
+                    <label>What brings you? *</label>
+                    <div class="check-group">
+                        <label class="check-label"><input type="checkbox" name="workWith" value="AI literacy workshop"> AI Literacy Workshop</label>
+                        <label class="check-label"><input type="checkbox" name="workWith" value="Equity audit"> Equity Audit</label>
+                        <label class="check-label"><input type="checkbox" name="workWith" value="Curriculum consulting"> Curriculum Consulting</label>
+                        <label class="check-label"><input type="checkbox" name="workWith" value="Research participation"> Research Participation</label>
+                        <label class="check-label"><input type="checkbox" name="workWith" value="General inquiry"> General Inquiry</label>
+                    </div>
+                    <span class="err" id="workWithError"></span>
+                </div>
+
+                <div class="f-group reveal">
+                    <label for="message">Tell me what you're looking for *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <div class="f-group consent-group reveal">
+                    <label class="check-label"><input type="checkbox" id="marketingConsent" name="marketingConsent" required> I understand that I will receive marketing and newsletter emails from EduBlck Institute. *</label>
+                    <span class="err" id="consentError"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary reveal" style="align-self:flex-start;">Send Message</button>
+                <p class="reply-line reveal">I reply within 2 to 3 business days</p>
+                <div id="formMessage" class="form-msg" role="status"></div>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="wrap foot-inner">
+            <span class="foot-logo">EduBlck Institute</span>
+            <div class="foot-links">
+                <a href="mailto:edblckins@gmail.com">edblckins@gmail.com</a>
+                <a href="https://www.instagram.com/EduBlckInstitute" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://x.com/EduBlckInstitute" target="_blank" rel="noopener">Twitter / X</a>
+            </div>
+            <p class="foot-line">© 2026 EduBlck Institute · Pittsburg, CA</p>
+        </div>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
