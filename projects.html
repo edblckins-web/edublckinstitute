@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Projects · Karla Hannah</title>
+    <meta name="description" content="Four AI systems built, shipped, and running in production: an enterprise chatbot, survey research automation, a serverless contact pipeline, and this site's own methodology.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lora:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+</div>
+
+<nav class="slim">
+    <a href="index.html" class="nav-logo">EduBlck Institute</a>
+    <a href="research.html" class="nav-link">Research</a>
+    <a href="consulting.html" class="nav-link">Consulting</a>
+    <a href="resume.html" class="nav-link">Resume</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+</nav>
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="resume.html">Resume</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<div class="page">
+    <div class="wrap">
+
+        <header class="page-head">
+            <p class="eyebrow reveal">AI Projects</p>
+            <h1 class="page-title reveal">Built. Shipped. <span class="kinetic">In production.</span></h1>
+            <p class="page-intro reveal">I don't wait for permission to build. I take calculated risks on hard problems: <strong>a full-stack AI analytics chatbot delivered to a real insurance client, a live NASA data explorer, and a research pipeline I built and own outright</strong>. Open any card. Every project tells the same story: problem, role, process, outcome.</p>
+        </header>
+
+        <section class="section">
+            <div class="stat-grid" style="margin-bottom:3rem;">
+                <div class="stat-card reveal"><p class="stat-num"><span class="counter" data-target="92">0</span><sup>%</sup></p><p class="stat-lbl">Projected claims-cycle improvement, client practicum</p></div>
+                <div class="stat-card reveal"><p class="stat-num"><span class="counter" data-target="6240">0</span></p><p class="stat-lbl">Confirmed exoplanets, live NASA data explorer</p></div>
+                <div class="stat-card reveal"><p class="stat-num"><span class="counter" data-target="4">0</span></p><p class="stat-lbl">Live research instruments, fully owned pipeline</p></div>
+                <div class="stat-card reveal"><p class="stat-num">$<span class="counter" data-target="0">0</span></p><p class="stat-lbl">Vendor cost across every system on this site</p></div>
+            </div>
+
+            <div class="acc-card reveal">
+                <button class="acc-head">
+                    <span class="acc-index">01</span>
+                    <span class="acc-title">Ask Remy: AI Analytics Chatbot for Faroe Insurance</span>
+                    <span class="acc-stat">92%</span>
+                    <span class="acc-chev">▾</span>
+                </button>
+                <div class="acc-body"><div class="acc-inner">
+                    <div class="beat"><span class="beat-label">Problem</span><p>Insurance professionals at Faroe were querying operational data by hand: 30-minute lookups, 72-hour claims cycles, and non-technical staff locked out of their own data. While my MBA peers ran simulations for their capstones, I took the risk of a real client with real stakes.</p></div>
+                    <div class="beat"><span class="beat-label">My role</span><p>Co-designed the system and <strong>led cross-functional technical work</strong> across data architecture, SQL optimization, API development, and conversational design, through a 27-task, 37-week engagement.</p></div>
+                    <div class="beat"><span class="beat-label">Process</span><p>Built as a full-stack system: <strong>Next.js frontend, FastAPI backend, and LLM-assisted routing where the model selects from deterministic SQL tools rather than generating SQL</strong>, so every answer stays consistent and auditable. Multi-company data architecture with per-customer scoping, domain-based access control, multi-turn conversation memory, a reusable customer onboarding ETL pipeline, and a test framework.</p></div>
+                    <div class="beat"><span class="beat-label">Outcome</span><p>Delivered to the client as a <strong>working demonstration system with a full technical handover</strong>: the foundation for their production expansion. Projected impact from our stakeholder analysis: 92% faster claims cycle (72 hours to 6), 98% reduction in data query time, and $100 to 200K in annual support savings.</p></div>
+                    <div class="tag-row"><span class="tag">Next.js</span><span class="tag">FastAPI</span><span class="tag">LLM Routing</span><span class="tag">SQL</span><span class="tag">ETL</span></div>
+                </div></div>
+            </div>
+
+            <div class="acc-card reveal">
+                <button class="acc-head">
+                    <span class="acc-index">02</span>
+                    <span class="acc-title">NASA Exoplanet Voyage: Proving the Pattern Transfers</span>
+                    <span class="acc-stat">6,240</span>
+                    <span class="acc-chev">▾</span>
+                </button>
+                <div class="acc-body"><div class="acc-inner">
+                    <div class="beat"><span class="beat-label">Problem</span><p>Ask Remy taught me a pattern: most organizations aren't short on data, they're short on ways to ask it questions. I wanted to prove that pattern wasn't a one-time fluke tied to insurance. So I rebuilt the same architecture on a completely different domain: NASA's public Exoplanet Archive, which is free but locked behind a formal query language and a 6,240-row flat table with no visual language at all.</p></div>
+                    <div class="beat"><span class="beat-label">My role</span><p>Designed and built the whole thing, solo and self-directed. I've wanted to work adjacent to NASA and space data for years, so I built real, demonstrable experience toward it instead of just saying I was interested.</p></div>
+                    <div class="beat"><span class="beat-label">Process</span><p>A live pipeline, not a one-time export: <strong>Python pulls current data from NASA's API, pandas cleans it, and it lands in a normalized three-table schema wrapped in a FastAPI backend with 15 validated endpoints</strong>, each checked by hand against the raw data. The frontend frames results as a voyage: Earth at the top, real light-year distances controlling the scroll. Every planet is rendered from its actual measurements, surface color from its real temperature, light tinted by its real host star, and shown as visually unknown when the data doesn't exist rather than faked.</p></div>
+                    <div class="beat"><span class="beat-label">Outcome</span><p><strong>Live in production on Vercel: 6,240 confirmed exoplanets, explorable right now.</strong> Honest scope: it's a portfolio piece, not a research tool, and the data refresh is manual. What it proves is the transferable skill: schema design, API build and validation, and a designed, accessible frontend shipped through real deployment debugging. <a href="https://exoplanet-voyage-dm63-zeta.vercel.app/" target="_blank" rel="noopener" style="color:var(--teal-bright); border-bottom:1px solid rgba(126,200,196,0.4); text-decoration:none;">Visit the explorer</a> · <a href="https://github.com/AquaA-eng/Exoplanets" target="_blank" rel="noopener" style="color:var(--teal-bright); border-bottom:1px solid rgba(126,200,196,0.4); text-decoration:none;">Backend repo</a> · <a href="https://github.com/AquaA-eng/exoplanet-voyage" target="_blank" rel="noopener" style="color:var(--teal-bright); border-bottom:1px solid rgba(126,200,196,0.4); text-decoration:none;">Frontend repo</a></p></div>
+                    <div class="tag-row"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Vercel</span></div>
+                </div></div>
+            </div>
+
+            <div class="acc-card reveal">
+                <button class="acc-head">
+                    <span class="acc-index">03</span>
+                    <span class="acc-title">EduBlck Research Infrastructure: Owned End to End</span>
+                    <span class="acc-stat">$0</span>
+                    <span class="acc-chev">▾</span>
+                </button>
+                <div class="acc-body"><div class="acc-inner">
+                    <div class="beat"><span class="beat-label">Problem</span><p>EduBlck Institute needed four live research surveys and a contact pipeline without handing community data to third-party vendors, and without a monthly bill. For community-based research, data ownership is not a preference. It's the ethics.</p></div>
+                    <div class="beat"><span class="beat-label">My role</span><p>Designed the research instruments and built both systems in code myself.</p></div>
+                    <div class="beat"><span class="beat-label">Process</span><p>One Google Apps Script generates all four survey instruments, educator and parent tracks in short and research-partner versions, with data-integrity screening built in. A second Apps Script web app runs the contact pipeline: it validates every submission, writes it to a structured Sheet, and fires an email notification in real time. It's wired to this site's contact form right now.</p></div>
+                    <div class="beat"><span class="beat-label">Outcome</span><p><strong>Four live research surveys collecting data today, a working lead pipeline, zero vendor lock-in, and full ownership of every layer.</strong> <a href="research.html" style="color:var(--teal-bright); border-bottom:1px solid rgba(126,200,196,0.4); text-decoration:none;">Take a survey on the Research page</a></p></div>
+                    <div class="tag-row"><span class="tag">Google Apps Script</span><span class="tag">JavaScript</span><span class="tag">Research Design</span><span class="tag">Email Automation</span><span class="tag">CBPR</span></div>
+                </div></div>
+            </div>
+
+            <div class="acc-card reveal">
+                <button class="acc-head">
+                    <span class="acc-index">04</span>
+                    <span class="acc-title">This Website, and the Method Behind It</span>
+                    <span class="acc-stat">The proof</span>
+                    <span class="acc-chev">▾</span>
+                </button>
+                <div class="acc-body"><div class="acc-inner">
+                    <div class="beat"><span class="beat-label">Problem</span><p>Most "AI built" websites are one prompt and a template. No architecture, no reasoning, no proof that thought went in.</p></div>
+                    <div class="beat"><span class="beat-label">My role</span><p>Directed the full build like a design team of one: I set the story, made every decision, and used AI as the fabrication layer, not the architect.</p></div>
+                    <div class="beat"><span class="beat-label">Process</span><p>Sitemap first. Then wireframes with click-by-click interaction notes. Then a content inventory auditing every block. Then a color system derived from color-theory research. Then a live design system. <strong>Every decision cited to published research before a single production line was written.</strong></p></div>
+                    <div class="beat"><span class="beat-label">Outcome</span><p>A repeatable, documented methodology, not a one-off prompt. The site you're standing in is the deliverable and the case study at once.</p></div>
+                    <div class="tag-row"><span class="tag">Design Method</span><span class="tag">HTML / CSS / JS</span><span class="tag">GitHub Pages</span><span class="tag">AI-Assisted Build</span></div>
+                </div></div>
+            </div>
+        </section>
+
+        <div class="cta-band reveal">
+            <p class="cta-related">These systems are hirable. <a href="consulting.html">See what I build for clients</a></p>
+            <a href="contact.html?interest=general" class="btn btn-primary">Build something with me</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrap foot-inner">
+            <span class="foot-logo">EduBlck Institute</span>
+            <div class="foot-links">
+                <a href="projects.html">AI Projects</a>
+                <a href="research.html">Research</a>
+                <a href="consulting.html">Consulting</a>
+                <a href="resume.html">Resume</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p class="foot-line">© 2026 EduBlck Institute · Pittsburg, CA</p>
+        </div>
+    </footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
