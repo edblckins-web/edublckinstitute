@@ -120,10 +120,12 @@
     var interest = params.get('interest');
     if (interest) {
       var map = {
+        embed: 'AI embedment / integration',
+        marketing: 'AI marketing & client analysis',
+        ux: 'UX / product build',
+        training: 'AI team training',
+        institute: 'EduBlck Institute services',
         research: 'Research participation',
-        workshop: 'AI literacy workshop',
-        audit: 'Equity audit',
-        curriculum: 'Curriculum consulting',
         general: 'General inquiry'
       };
       var value = map[interest];
@@ -186,7 +188,7 @@
       fd.append('marketingConsent', consent ? 'on' : 'off');
 
       try {
-        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJ0d-c02bexrNNV07WdWEhG9YfUId4cSMXBY8T6d9rkJnxrc9Nhu8u3Ceab4mFTEbLaw/exec';
+        var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVA7rJT_SXyOhM0GXCeDFb_uCbHLrrIveVqxvtZgH0TLxwrAs_ZkFOhCP_jH736Czv-A/exec';
         var res = await fetch(SCRIPT_URL, { method: 'POST', body: fd });
         var result = await res.json();
         if (result.status === 'success') {
