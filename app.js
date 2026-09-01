@@ -32,11 +32,20 @@
     var toggleDrawer = function (force) {
       var open = typeof force === 'boolean' ? force : !drawer.classList.contains('open');
       drawer.classList.toggle('open', open);
+      drawer.querySelectorAll('a').forEach(function (a) {
+        if (open) { a.removeAttribute('tabindex'); } else { a.setAttribute('tabindex', '-1'); }
+      });
       overlay.classList.toggle('open', open);
       hamburger.classList.toggle('open', open);
       hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
     };
     hamburger.addEventListener('click', function () { toggleDrawer(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        toggleDrawer(false);
+        hamburger.focus();
+      }
+    });
     overlay.addEventListener('click', function () { toggleDrawer(false); });
     drawer.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () { toggleDrawer(false); });
@@ -74,10 +83,11 @@
       tile.addEventListener('click', function () {
         var target = tile.getAttribute('data-theme');
         var already = tile.classList.contains('active');
-        themeTiles.forEach(function (t) { t.classList.remove('active'); });
+        themeTiles.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-expanded', 'false'); });
         themeDetails.forEach(function (d) { d.classList.remove('show'); });
         if (!already) {
           tile.classList.add('active');
+          tile.setAttribute('aria-expanded', 'true');
           var detail = document.getElementById('theme-' + target);
           if (detail) detail.classList.add('show');
         }
@@ -151,22 +161,11 @@
          a non-empty lastName, so we validate for a full name here. */
       var fullName = document.getElementById('name').value.trim();
       var spaceIdx = fullName.indexOf(' ');
-      if (spaceIdx === -1) {
-        msg.className = 'form-msg error';
-        msg.textContent = 'Please enter your first and last name.';
-        valid = false;
-      }
 
       if (checked.length === 0) {
         var wErr = document.getElementById('workWithError');
         wErr.textContent = 'Please select at least one option.';
         wErr.classList.add('show');
-        valid = false;
-      }
-      if (!consent) {
-        var cErr = document.getElementById('consentError');
-        cErr.textContent = 'You must agree to receive marketing emails to proceed.';
-        cErr.classList.add('show');
         valid = false;
       }
       if (!valid) return;
@@ -175,8 +174,8 @@
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
-      var firstName = fullName.slice(0, spaceIdx);
-      var lastName = fullName.slice(spaceIdx + 1);
+      var firstName = spaceIdx === -1 ? fullName : fullName.slice(0, spaceIdx);
+      var lastName = spaceIdx === -1 ? '-' : fullName.slice(spaceIdx + 1);
 
       var selected = Array.from(checked).map(function (cb) { return cb.value; }).join(', ');
       var fd = new FormData();
