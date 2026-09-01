@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
+
 <div class="aurora" aria-hidden="true">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -36,6 +38,7 @@
 </div>
 
 <div class="page">
+<main id="main">
     <div class="wrap">
 
         <header class="page-head">
@@ -48,7 +51,8 @@
             <form id="contactForm" class="form-col">
                 <div class="f-group reveal">
                     <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" autocomplete="name" required>
+                    <span class="visually-hidden" id="nameHint">Enter the name you would like to be called.</span>
+                    <input type="text" id="name" name="name" autocomplete="name" aria-describedby="nameHint" required>
                 </div>
 
                 <div class="f-group reveal">
@@ -57,7 +61,8 @@
                 </div>
 
                 <div class="f-group reveal">
-                    <label>What brings you? *</label>
+                  <fieldset class="f-fieldset" aria-describedby="workWithError">
+                    <legend class="f-legend">What brings you? *</legend>
                     <div class="check-group">
                         <label class="check-label"><input type="checkbox" name="workWith" value="AI embedment / integration"> AI Embedment / Integration</label>
                         <label class="check-label"><input type="checkbox" name="workWith" value="AI marketing & client analysis"> AI Marketing &amp; Client Analysis</label>
@@ -67,7 +72,8 @@
                         <label class="check-label"><input type="checkbox" name="workWith" value="Research participation"> Research Participation</label>
                         <label class="check-label"><input type="checkbox" name="workWith" value="General inquiry"> Something Else / General</label>
                     </div>
-                    <span class="err" id="workWithError"></span>
+                    <span class="err" id="workWithError" role="alert" aria-live="polite"></span>
+                  </fieldset>
                 </div>
 
                 <div class="f-group reveal">
@@ -76,9 +82,13 @@
                 </div>
 
                 <div class="f-group consent-group reveal">
-                    <label class="check-label"><input type="checkbox" id="marketingConsent" name="marketingConsent" required> I understand that I will receive marketing and newsletter emails from EduBlck Institute. *</label>
-                    <span class="err" id="consentError"></span>
+                    <label class="check-label"><input type="checkbox" id="marketingConsent" name="marketingConsent"> Yes, send me occasional emails and updates from EduBlck Institute. (Optional. You can unsubscribe at any time.)</label>
+                    <span class="err" id="consentError" role="alert" aria-live="polite"></span>
                 </div>
+                <p class="reply-line reveal" style="text-transform:none;letter-spacing:0.02em;font-size:0.72rem;">
+                    Your details go to Karla only, and are stored in Google Workspace. See the
+                    <a href="privacy.html">Privacy Policy</a>.
+                </p>
 
                 <button type="submit" class="btn btn-primary reveal" style="align-self:flex-start;">Send Message</button>
                 <p class="reply-line reveal">I reply within 2 to 3 business days</p>
@@ -86,12 +96,15 @@
             </form>
         </section>
     </div>
+</main>
 
     <footer>
         <div class="wrap foot-inner">
             <span class="foot-logo">EduBlck Institute</span>
             <div class="foot-links">
                 <a href="mailto:edblckins@gmail.com">edblckins@gmail.com</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
                 <a href="https://www.instagram.com/EduBlckInstitute" target="_blank" rel="noopener">Instagram</a>
                 <a href="https://x.com/EduBlckInstitute" target="_blank" rel="noopener">Twitter / X</a>
                 <a href="https://www.linkedin.com/in/karlam2/" target="_blank" rel="noopener">LinkedIn</a>
