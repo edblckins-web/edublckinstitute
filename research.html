@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
+
 <div class="aurora" aria-hidden="true">
     <div class="blob b1"></div>
     <div class="blob b2"></div>
@@ -36,6 +38,7 @@
 </div>
 
 <div class="page">
+<main id="main">
     <div class="wrap">
 
         <header class="page-head">
@@ -50,11 +53,11 @@
             <p class="page-intro reveal" style="margin:0 0 2rem; text-align:left; max-width:680px;">Click any theme to open it. Plain language on purpose: if a Pittsburg parent can't read this page, the research has already failed its own methodology.</p>
 
             <div class="theme-grid reveal">
-                <div class="theme-tile" data-theme="1">01 · Bias in AI Tools</div>
-                <div class="theme-tile" data-theme="2">02 · Digital Divide</div>
-                <div class="theme-tile" data-theme="3">03 · Teacher Training</div>
-                <div class="theme-tile" data-theme="4">04 · Grades 5-9 Math Gap</div>
-                <div class="theme-tile" data-theme="5">05 · Equity Frameworks</div>
+                <button type="button" class="theme-tile" data-theme="1" aria-expanded="false" aria-controls="theme-1">01 · Bias in AI Tools</button>
+                <button type="button" class="theme-tile" data-theme="2" aria-expanded="false" aria-controls="theme-2">02 · Digital Divide</button>
+                <button type="button" class="theme-tile" data-theme="3" aria-expanded="false" aria-controls="theme-3">03 · Teacher Training</button>
+                <button type="button" class="theme-tile" data-theme="4" aria-expanded="false" aria-controls="theme-4">04 · Grades 5-9 Math Gap</button>
+                <button type="button" class="theme-tile" data-theme="5" aria-expanded="false" aria-controls="theme-5">05 · Equity Frameworks</button>
             </div>
 
             <div class="theme-detail" id="theme-1">
@@ -114,6 +117,7 @@
             <a href="contact.html?interest=research" class="btn btn-primary">Join our research</a>
         </div>
     </div>
+</main>
 
     <footer>
         <div class="wrap foot-inner">
@@ -124,6 +128,8 @@
                 <a href="consulting.html">Consulting</a>
                 <a href="resume.html">Resume</a>
                 <a href="contact.html">Contact</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
             </div>
             <p class="foot-line">© 2026 EduBlck Institute · Pittsburg, CA</p>
         </div>
